@@ -1,0 +1,2 @@
+exdns_server: 8.8.8.8
+exansible_custom_user: ansible

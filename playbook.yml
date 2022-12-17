@@ -1,0 +1,6 @@
+---
+- name: Configuracion inicial.
+  hosts: all
+  roles:
+    - initial-config/
+    - mariadb-install/

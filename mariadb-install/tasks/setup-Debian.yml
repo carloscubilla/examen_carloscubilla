@@ -1,0 +1,5 @@
+---
+- name: Instalando paquetes de mariadb para debian
+  yum:
+    name: "{{ mysql_packages_Debian }}"
+    state: present

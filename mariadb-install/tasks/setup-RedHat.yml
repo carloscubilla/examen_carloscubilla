@@ -1,0 +1,5 @@
+---
+- name: Instalando paquetes de mariadb para redhat
+  yum:
+    name: "{{ mysql_packages_RedHat }}"
+    state: present

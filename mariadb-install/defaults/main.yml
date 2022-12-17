@@ -1,0 +1,9 @@
+---
+# defaults file for mariadb-install
+mysql_root_user: root
+mysql_root_password: "{{ vault_root_password }}"
+mysql_root_home: /root
+mysql_socket: /var/lib/mysql/mysql.sock
+mysql_users:
+  - name: app
+    password: "{{ vault_app_user_password }}"

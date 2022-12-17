@@ -1,0 +1,16 @@
+---
+# vars file for mariadb-install
+---
+mysql_packages_Redhat:
+  - mariadb
+  - mariadb-server
+  - python3-PyMySQL
+mysql_databases_Redhat:
+  - name: app1
+
+mysql_packages_Debian:
+ - mysql-common
+ - mysql-server
+
+mysql_databases_Debian:
+  - name: app2

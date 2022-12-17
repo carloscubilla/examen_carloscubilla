@@ -1,0 +1,7 @@
+---
+- name: Copiando el archivo root-my.cnf
+  template:
+    src: "root-my.cnf.j2"
+    dest: /{{ mysql_root_home }}/.my.cnf
+    owner: "{{ mysql_root_user }}"
+    mode: 0600

@@ -1,0 +1,6 @@
+---
+# defaults file for initial-config
+exdns_server: 8.8.8.8
+exansible_custom_user: ansible
+ansible_ssh_pass: 12345678
+variable1: sshpass

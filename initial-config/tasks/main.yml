@@ -1,0 +1,34 @@
+---
+# tasks file for initial-config
+- name: Configuracion de hostname {{ inventory_hostname }}
+  hostname:
+        name: '{{ inventory_hostname }}'
+
+- name: Configuracion de en resolv.conf DNS {{ exdns_server }}
+  lineinfile:
+    path: /etc/resolv.conf
+    line: nameserver {{ exdns_server }}
+
+- name: Agregar user {{ exansible_custom_user }}
+  user:
+   name: '{{ exansible_custom_user }}'
+   groups: wheel
+
+- name: Instalacion de {{ variable1 }} en {{ inventory_hostname }}
+  ansible.builtin.yum:
+   name: '{{ variable1 }}'
+   state: present
+
+- name: Copiar clave publica del usuario {{ exansible_custom_user }}
+  authorized_key:
+   user: '{{ exansible_custom_user }}'
+   state: present
+   key: "{{ lookup('file', '/home/ansible/.ssh/id_rsa.pub') }}"
+
+- name: Sudoers para el usuario ansible {{ exansible_custom_user }}
+  community.general.sudoers:
+    name: sudoers-ansible
+    state: present
+    group: wheel
+    commands: ALL
+    nopassword: true
